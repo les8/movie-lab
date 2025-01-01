@@ -1,6 +1,8 @@
 <template>
   <header>
-    <h1>Test Task</h1>
+    <nav>
+      <h1>Test Task</h1>
+    </nav>
   </header>
 </template>
 
