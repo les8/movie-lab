@@ -5,8 +5,18 @@
 </template>
 
 <script lang="ts" setup>
-const movies = ref(null);
-const getMovies = async () => {
+interface Movie {
+  description: string
+  duration: string
+  genre: string
+  id: number
+  name: string
+  poster: string
+  rating: number
+}
+
+const movies = ref<Movie[]>([]);
+const getMovies = async (): Promise<void> => {
   try {
     movies.value = await $fetch('api/data', {
       method: 'GET',
