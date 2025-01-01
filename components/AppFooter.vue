@@ -15,4 +15,10 @@
 .phone {
   margin-bottom: 4px;
 }
+
+footer {
+  position: sticky;
+  top: 100%;
+  left: 0;
+}
 </style>
