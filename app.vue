@@ -1,7 +1,9 @@
 <template>
   <NuxtLayout>
     <Transition name="fade" mode="out-in">
-      <NuxtPage />
+      <div>
+        <NuxtPage />
+      </div>
     </Transition>
   </NuxtLayout>
 </template>
