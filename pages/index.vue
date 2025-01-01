@@ -1,5 +1,7 @@
 <template>
-  <div></div>
+  <main class="movies">
+    <ul class="movies__list"></ul>
+  </main>
 </template>
 
 <script lang="ts" setup>
@@ -17,4 +19,9 @@ const getMovies = async () => {
 getMovies();
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.movies {
+  margin: 0 auto;
+  padding: 32px 48px;
+}
+</style>
