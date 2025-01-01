@@ -1,7 +1,9 @@
 <template>
   <header>
     <nav>
-      <h1>Test Task</h1>
+      <NuxtLink to="/">
+        <h1>Test Task</h1>
+      </NuxtLink>
     </nav>
   </header>
 </template>
