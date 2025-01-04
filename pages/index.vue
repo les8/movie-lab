@@ -1,7 +1,7 @@
 <template>
   <main class="movies">
     <ul class="movies__list">
-      <TheMovie v-for="movie in movies" :key="movie.id" />
+      <TheMovie v-for="movie in movies" :key="movie.id" :movie="movie" />
     </ul>
   </main>
 </template>
@@ -9,7 +9,7 @@
 <script lang="ts" setup>
 import TheMovie from '~/components/movie/TheMovie.vue';
 
-interface Movie {
+export interface Movie {
   description: string;
   duration: string;
   genre: string;
