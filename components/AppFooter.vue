@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <h5>Test Task, 2022</h5>
+    <h5>Movie Lab, 2025</h5>
 
     <address>
       <p class="phone">Телефон: <a href="tel:+5183632171">518-363-2171</a></p>

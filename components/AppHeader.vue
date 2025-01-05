@@ -2,7 +2,7 @@
   <header>
     <nav>
       <NuxtLink to="/">
-        <h1>Test Task</h1>
+        <h1>Movie Lab</h1>
       </NuxtLink>
     </nav>
   </header>
