@@ -1,20 +1,28 @@
 <template>
   <article class="movie">
-    <img
-      :src="props.movie.poster"
-      :alt="`${props.movie.name} poster`"
-      class="movie__poster"
-      height="172"
-      loading="lazy"
-    />
+    <div class="movie__card">
+      <img
+        :src="props.movie.poster"
+        :alt="`${props.movie.name} poster`"
+        class="movie__poster"
+        height="172"
+        loading="lazy"
+      />
 
-    <div class="movie__info">
-      <h2>{{ props.movie.name }}</h2>
+      <div class="movie__info">
+        <h2>{{ props.movie.name }}</h2>
 
-      <p>{{ props.movie.description }}</p>
+        <p>{{ props.movie.description }}</p>
+      </div>
+
+      <MTags
+        :rating="props.movie.rating"
+        :genre="props.movie.genre"
+        :duration="props.movie.duration"
+      />
     </div>
 
-    <MTags :rating="props.movie.rating" :genre="props.movie.genre" :duration="props.movie.duration" />
+    <div class="movie__background" />
   </article>
 </template>
 
@@ -29,14 +37,35 @@ const props = defineProps<{
 
 <style lang="scss" scoped>
 .movie {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  height: 306px;
-  min-width: 0;
-  padding: 12px;
-  background: rgba(41, 45, 50, 1);
-  border-radius: 8px;
+  position: relative;
+
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(112, 43, 254, 1);
+    border-radius: 8px;
+  }
+
+  &__card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    height: 306px;
+    min-width: 0;
+    padding: 12px;
+    background: rgba(41, 45, 50, 1);
+    border-radius: 8px;
+    z-index: 1;
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: translate(-8px, -8px);
+    }
+  }
 
   &__poster {
     width: 100%;
