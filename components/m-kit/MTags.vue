@@ -77,6 +77,10 @@ const ratingStyle = computed(() => {
 
   &__genre {
     background: rgba(44, 129, 251, 1);
+
+    .m-tags__tag-name::first-letter {
+      text-transform: uppercase;
+    }
   }
 
   &__clock {
