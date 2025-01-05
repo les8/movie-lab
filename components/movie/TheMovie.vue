@@ -1,28 +1,30 @@
 <template>
   <article class="movie">
-    <div class="movie__card">
-      <img
-        :src="props.movie.poster"
-        :alt="`${props.movie.name} poster`"
-        class="movie__poster"
-        height="172"
-        loading="lazy"
-      />
+    <NuxtLink :to="`movie/${props.movie.id}`">
+      <div class="movie__card">
+        <img
+          :src="props.movie.poster"
+          :alt="`${props.movie.name} poster`"
+          class="movie__poster"
+          height="172"
+          loading="lazy"
+        />
 
-      <div class="movie__info">
-        <h2>{{ props.movie.name }}</h2>
+        <div class="movie__info">
+          <h2>{{ props.movie.name }}</h2>
 
-        <p>{{ props.movie.description }}</p>
+          <p>{{ props.movie.description }}</p>
+        </div>
+
+        <MTags
+          :rating="props.movie.rating"
+          :genre="props.movie.genre"
+          :duration="props.movie.duration"
+        />
       </div>
 
-      <MTags
-        :rating="props.movie.rating"
-        :genre="props.movie.genre"
-        :duration="props.movie.duration"
-      />
-    </div>
-
-    <div class="movie__background" />
+      <div class="movie__background" />
+    </NuxtLink>
   </article>
 </template>
 
