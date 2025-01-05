@@ -13,11 +13,14 @@
 
       <p>{{ props.movie.description }}</p>
     </div>
+
+    <MTags :rating="props.movie.rating" :genre="props.movie.genre" :duration="props.movie.duration" />
   </article>
 </template>
 
 <script setup lang="ts">
 import { type Movie } from '~/pages/index.vue';
+import MTags from '../m-kit/MTags.vue';
 
 const props = defineProps<{
   movie: Movie;
