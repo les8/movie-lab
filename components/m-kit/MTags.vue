@@ -17,7 +17,7 @@
     <li class="m-tags__clock">
       <NuxtIcon name="clock" class="m-tags__icon" /><span
         class="m-tags__tag-name"
-        >{{ props.duration }}</span
+        >{{ setDuration }}</span
       >
     </li>
   </ul>
@@ -43,6 +43,15 @@ const ratingStyle = computed(() => {
 
   return style;
 });
+
+const setDuration = computed(() => {
+  const durationArr = props.duration.split(':')
+
+  if (durationArr[1].length < 2) {
+    durationArr[1] = '0' + durationArr[1]
+    return durationArr.join(':')
+  } else return props.duration
+})
 </script>
 
 <style lang="scss" scoped>
