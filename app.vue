@@ -1,10 +1,11 @@
 <template>
   <NuxtLayout>
-    <Transition name="fade" mode="out-in">
-      <div>
-        <NuxtPage />
-      </div>
-    </Transition>
+    <NuxtPage
+      :transition="{
+        name: 'fade',
+        mode: 'out-in',
+      }"
+    />
   </NuxtLayout>
 </template>
 
@@ -13,7 +14,7 @@
 <style scoped>
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 1s ease;
+  transition: opacity 0.3s ease;
 }
 
 .fade-enter-from,
