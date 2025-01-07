@@ -3,7 +3,7 @@
     <li :style="ratingStyle">
       <NuxtIcon name="star" class="m-tags__icon" /><span
         class="m-tags__tag-name"
-        >{{ props.rating }}</span
+        >{{ Number(props.rating).toFixed(2) }}</span
       >
     </li>
 
