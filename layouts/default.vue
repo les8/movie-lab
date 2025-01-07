@@ -1,5 +1,5 @@
 <template>
-  <div class="layout">
+  <div class="relative h-full">
     <AppHeader />
     <slot />
     <AppFooter />
@@ -7,10 +7,3 @@
 </template>
 
 <script setup lang="ts"></script>
-
-<style scoped>
-.layout {
-  position: relative;
-  height: 100%;
-}
-</style>

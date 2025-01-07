@@ -1,6 +1,8 @@
 <template>
-  <main class="movies">
-    <ul class="movies__list">
+  <main class="my-0 mx-auto py-8 px-12 max-w-screen-2xl">
+    <ul
+      class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+    >
       <TheMovie v-for="movie in movies" :key="movie.id" :movie="movie" />
     </ul>
   </main>
@@ -38,29 +40,3 @@ const getMovies = async (): Promise<void> => {
 
 getMovies();
 </script>
-
-<style lang="scss" scoped>
-.movies {
-  margin: 0 auto;
-  padding: 32px 48px;
-  max-width: 1440px;
-
-  &__list {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 16px;
-
-    @media (min-width: 768px) {
-      grid-template-columns: 1fr 1fr;
-    }
-
-    @media (min-width: 992px) {
-      grid-template-columns: 1fr 1fr 1fr;
-    }
-
-    @media (min-width: 1200px) {
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-    }
-  }
-}
-</style>
