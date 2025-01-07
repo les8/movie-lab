@@ -1,12 +1,15 @@
 <template>
-  <article v-if="details" class="details">
-    <div class="details__main">
+  <article
+    v-if="details"
+    class="flex flex-wrap gap-16 py-6 max-w-screen-2xl w-full mx-auto px-12"
+  >
+    <div class="flex flex-col gap-6">
       <h1>{{ details.name }}</h1>
 
       <img
         :src="details.poster"
         :alt="`${details.name} poster`"
-        class="details__poster"
+        class="rounded-lg object-cover overflow-hidden"
         width="240"
         height="320"
         loading="lazy"
@@ -19,20 +22,20 @@
       />
     </div>
 
-    <div class="details__info">
+    <div class="flex flex-col gap-4 max-w-xs">
       <h1>Description</h1>
       <p>{{ details.description }}</p>
 
       <h1>Trivia</h1>
-      <ul class="details__trivia">
-        <li v-for="triv in details.trivia" :key="triv">
+      <ul class="list-disc pl-4">
+        <li v-for="triv in details.trivia" :key="triv" class="list-disc">
           <p>{{ triv }}</p>
         </li>
       </ul>
 
       <h1>Actors</h1>
-      <ul class="details__actors">
-        <li v-for="actor in details.actors" :key="actor.imdb_id">
+      <ul class="list-disc pl-4">
+        <li v-for="actor in details.actors" :key="actor.imdb_id" class="list-disc underline">
           <NuxtLink :to="`/actors/${actor.imdb_id}`">
             <p>{{ actor.name }}</p>
           </NuxtLink>
@@ -74,45 +77,3 @@ if (error.value) {
   console.error(error.value);
 }
 </script>
-
-<style lang="scss" scoped>
-.details {
-  display: flex;
-  gap: 64px;
-  flex-wrap: wrap;
-  padding: 24px 46px;
-
-  &__main {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-  }
-
-  &__poster {
-    overflow: hidden;
-    border-radius: 8px;
-    object-fit: cover;
-  }
-
-  &__info {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    max-width: 340px;
-
-    ul li {
-      list-style: disc;
-    }
-
-    ul {
-      padding-left: 23px;
-    }
-  }
-
-  &__actors {
-    li {
-      text-decoration: underline;
-    }
-  }
-}
-</style>
