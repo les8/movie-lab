@@ -1,19 +1,21 @@
 <template>
-  <article class="movie">
+  <article class="relative">
     <NuxtLink :to="`/movie/${props.movie.id}`">
-      <div class="movie__card">
+      <div
+        class="relative flex flex-col gap-3 min-w-0 h-80 p-3 bg-slate-700 rounded-lg z-10 transition-transform duration-200 ease-in-out hover:-translate-x-2 hover:-translate-y-2"
+      >
         <img
           :src="props.movie.poster"
           :alt="`${props.movie.name} poster`"
-          class="movie__poster"
-          height="172"
+          class="w-full overflow-hidden rounded-lg object-cover"
+          height="132"
           loading="lazy"
         />
 
-        <div class="movie__info">
-          <h2>{{ props.movie.name }}</h2>
+        <div class="flex flex-col gap-1">
+          <h2 class="overflow-hidden text-ellipsis whitespace-nowrap">{{ props.movie.name }}</h2>
 
-          <p>{{ props.movie.description }}</p>
+          <p class="line-clamp-2 overflow-hidden text-ellipsis h-12s">{{ props.movie.description }}</p>
         </div>
 
         <MTags
@@ -23,7 +25,9 @@
         />
       </div>
 
-      <div class="movie__background" />
+      <div
+        class="absolute top-0 left-0 w-full h-full rounded-lg bg-indigo-600"
+      />
     </NuxtLink>
   </article>
 </template>
@@ -36,63 +40,3 @@ const props = defineProps<{
   movie: Movie;
 }>();
 </script>
-
-<style lang="scss" scoped>
-.movie {
-  position: relative;
-
-  &__background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(112, 43, 254, 1);
-    border-radius: 8px;
-  }
-
-  &__card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    height: 306px;
-    min-width: 0;
-    padding: 12px;
-    background: rgba(41, 45, 50, 1);
-    border-radius: 8px;
-    z-index: 1;
-    transition: transform 0.2s ease;
-
-    &:hover {
-      transform: translate(-8px, -8px);
-    }
-  }
-
-  &__poster {
-    width: 100%;
-    overflow: hidden;
-    border-radius: 8px;
-    object-fit: cover;
-  }
-
-  &__info {
-    h2 {
-      margin-bottom: 4px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    p {
-      display: -webkit-box;
-      line-clamp: 2;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      height: 32px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-  }
-}
-</style>
