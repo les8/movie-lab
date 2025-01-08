@@ -35,7 +35,7 @@
 
       <h1>Actors</h1>
       <ul class="list-disc pl-4">
-        <li v-for="actor in details.actors" :key="actor.imdb_id" class="list-disc underline">
+        <li v-for="actor in details.actors" :key="actor.imdb_id" class="list-disc underline decoration-white">
           <NuxtLink :to="`/actors/${actor.imdb_id}`">
             <p>{{ actor.name }}</p>
           </NuxtLink>

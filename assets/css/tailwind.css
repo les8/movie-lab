@@ -44,4 +44,8 @@
   #__nuxt {
     @apply h-full min-h-full;
   }
+
+  ul li::marker {
+    @apply text-stone-50;
+  }
 }
