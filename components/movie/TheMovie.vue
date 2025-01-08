@@ -7,8 +7,8 @@
         <img
           :src="props.movie.poster"
           :alt="`${props.movie.name} poster`"
-          class="w-full overflow-hidden rounded-lg object-cover"
-          height="132"
+          class="w-full overflow-hidden rounded-lg object-cover h-39"
+          height="156"
           loading="lazy"
         />
 
@@ -40,3 +40,9 @@ const props = defineProps<{
   movie: Movie;
 }>();
 </script>
+
+<style>
+.h-39 {
+  height: 156px;
+}
+</style>
